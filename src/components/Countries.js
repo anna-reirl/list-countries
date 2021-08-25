@@ -19,7 +19,11 @@ function Countries() {
         <Table striped bordered hover className={"countries"}>
             <thead><tr><th>Name</th><th>Capital</th><th></th></tr></thead>
             <tbody>
-                {countries.map(country => <Country key={country.alpha3Code} country={country} />)}
+                {countries.map(country => country.capital ? <Country key={country.alpha3Code} 
+                name={country.name}
+                capital={country.capital}
+                 /> : <Country key={country.alpha3Code} 
+                               name={country.name}/>)}
             </tbody>
         </Table>
     )
