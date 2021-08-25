@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import axios from 'axios'
 import Table from 'react-bootstrap/Table';
 import Country from './Country'
@@ -7,9 +7,10 @@ import "../styles/Countries.css"
 
 
 function Countries() {
-    const [countries, setCountries] = useState([])
+    const [countries, setCountries] = React.useState([])
     if(!countries.length) {
-        axios.get("https://restcountries.eu/rest/v2/all").then(res => {
+        axios.get("https://restcountries.eu/rest/v2/all").then(
+        res => {
             console.log(res)
             setCountries(res.data)
         })
